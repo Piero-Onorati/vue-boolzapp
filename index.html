@@ -73,12 +73,29 @@
                 <label for="search" class="search-label">
                     <i class="fas fa-search"></i>
                 </label>
-                <input type="text" name="search">
+                <input type="text" name="search" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- end search-bar-div -->
 
             <!-- start section contacts -->
-            <section class="contacts"></section>
+            <section class="contacts" id="contacts">
+                <div class="person" v-for="person in contacts">
+                    <div class="user">
+                        <div class="circle-div">
+                            <img :src="person.avatar" alt="">
+                        </div>
+
+                        <div class="user-details">
+                            <div class="name-last-message">
+                                <h3>{{person.name}} </h3>
+                                <span>Last message</span>
+                            </div>
+
+                            <span class="last-access">28/06/2021 10:02:01</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- end section contacts -->
 
         </div>
@@ -95,7 +112,7 @@
                     <div class="circle-div">
                         <img src="img/av_2.png" alt="">
                     </div>
-                    <div class="name-access">
+                    <div class="name-last-access">
                         <h3>Nome </h3>
                         <span>Ultimo accesso oggi alle</span>
                     </div>
@@ -115,7 +132,10 @@
 
             <!-- start section-meassages -->
             <section class="messages">
-
+                <div class="messages-container">
+                    <div class="message my-message">ciaokkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</div>
+                    <div class="message user-message">byeoooooooooooooooooooooooooooooooooooooooooooooooo</div>
+                </div>
             </section>
             <!-- end section-meassages -->
 

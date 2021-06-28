@@ -8,8 +8,8 @@
 .circle-div{
     background-color: whitesmoke;
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    max-width: 55px;
+    max-height: 55px;
 }
 
 h3, h4{
@@ -19,6 +19,46 @@ h3, h4{
 span{
     font-size: 14px;
     color:gray
+}
+
+.user{
+    display: flex;
+    align-items: center;
+}
+
+.user .circle-div{
+    margin-right: 10px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.user .circle-div>img{
+    width: 100%;
+}
+
+.header{
+    height: 70px;
+    padding: 0 15px 0 10px;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    flex-wrap: nowrap;
+}
+
+
+.header .icons{
+    font-size: 22px;
+    color:#b1b1b1;
+    display: flex;
+    align-items: center;
+    
+}
+
+.header .icons>i{
+    margin: 0 12px ;
 }
 
 .background{
@@ -48,49 +88,14 @@ span{
 
 .col-sx{
     height: 100%;
-    width: 450px;
+    width: 40%;
+    min-width: 350px;
 }
 
 .col-sx>.header{
     border-right: 1px solid #b1b1b1;
 }
 
-.header{
-    height: 70px;
-    padding: 0 15px 0 10px;
-    background-color: #eaeaea;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eaeaea;
-}
-
-.header .user{
-    display: flex;
-    align-items: center;
-}
-
-.header .user .circle-div{
-    margin-right: 10px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-}
-
-.header .user .circle-div>img{
-    width: 100%;
-}
-
-.icons{
-    font-size: 22px;
-    color:#b1b1b1;
-    display: flex;
-    align-items: center;
-}
-
-.icons>i{
-    margin: 0 12px ;
-}
 
 .notifications{
     height: 80px;
@@ -138,21 +143,38 @@ span{
     border: 1px solid #e7e7e7 ;
 }
 
-
-
-
-
 .contacts{
     background-color: white;
     height: calc(100% - 200px);
     overflow-y: scroll;
 }
 
+.contacts .person{
+    width: 100%;
+    padding: 10px 10px 10px 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.contacts .person>.user .circle-div{
+    width: 60px;
+    height: 60px;
+
+}
+
+.contacts .person>.user{
+    align-items: flex-start;
+}
+.contacts .person>.user .user-details{
+    width:calc(100% - 70px);
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ------------------ COL DX ------------------ */
 
 .col-dx{
     height: 100%;
-    width: calc(100% - 450px);
+    width: calc(100% - 40%);
+    min-width: 400px;
 }
 
 .messages{
@@ -161,6 +183,32 @@ span{
     width: 100%;
     overflow-y: scroll;
 }
+.messages .messages-container{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message{
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.my-message{
+    align-self: flex-end;
+    background-color: #DCF8C6;
+    
+}
+
+.user-message{
+    align-self: flex-start;
+    background-color: white;
+}
+
 
 .write-message-div{
     height: 70px;
@@ -181,7 +229,6 @@ span{
     height: 50px;
     border-radius: 10px;
     border: 1px solid #6b7376;
-    
 }
 
 .write-message-div>input::placeholder{
