@@ -5,17 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
-
     <!-- Fontawesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <!-- Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 <body>
 
@@ -24,9 +23,70 @@
     </div>
 
     <div class="container" id="app">
-        <div class="col-sx"></div>
+        <div class="col-sx">
+            <div class="header">
+                <div class="user">
+                    <div class="circle-div">
+                        <img src="img/av_1.png" alt="">
+                    </div>
+                    
+                    <h3>Nome Utente</h3>
+                    
+                </div>
+                <div class="icons">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
 
-        <div class="col-dx"></div>
+
+            </div>
+
+
+            <div class="notifications">
+                <div class="circle-div">
+                    <i class="fas fa-bell-slash"></i>
+
+                </div>
+
+                <div class="name-access">
+                    <h4>Ricevi notifiche di nuovi messaggi </h4>
+                    <span>Attiva notifiche desktop</span>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+
+        <div class="col-dx">
+            <div class="header">
+
+                <div class="user">
+                    <div class="circle-div">
+                        <img src="img/av_2.png" alt="">
+                    </div>
+                    <div class="name-access">
+                        <h3>Nome </h3>
+                        <span>Ultimo accesso oggi alle</span>
+    
+                    </div>
+
+                </div>
+
+                
+
+                <div class="icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+                
+                
+            </div>
+            
+        </div>
         
     </div>
     
