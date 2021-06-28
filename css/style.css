@@ -25,7 +25,7 @@ span{
     height: 100vh;
     width: 100vw;
     position: relative;
-    background-color: #d7dbd7;  
+    background-color: #d7dbd7;
 }
 
 .background-top{
@@ -36,7 +36,7 @@ span{
 .container{
     font-family: 'Roboto', sans-serif;
     height: 95%;
-    width: 75%; 
+    width: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,19 +44,15 @@ span{
     display: flex;
 }
 
+/* ------------------ COL SX ------------------ */
 
 .col-sx{
     height: 100%;
-    width: 35%;
+    width: 450px;
     border-right: 1px solid #b1b1b1;
     background-color: lightgray
 }
 
-.col-dx{
-    height: 100%;
-    width: calc(100% - 35%);
-    background-color: bisque;
-}
 
 .header{
     height: 70px;
@@ -74,7 +70,6 @@ span{
 }
 
 .header .user .circle-div{
-    
     margin-right: 10px;
     display: flex;
     align-items: flex-end;
@@ -113,4 +108,45 @@ span{
     justify-content: center;
     font-size: 22px;
     color:#8edafc;
+}
+
+/* ------------------ COL DX ------------------ */
+
+.col-dx{
+    height: 100%;
+    width: calc(100% - 450px);
+}
+
+.messages{
+    background-image: url('../img/mine.jpg');
+    height: calc(100% - 140px);
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.write-message-div{
+    height: 70px;
+    background-color: #f3eeea;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+
+.write-message-div>i{
+    font-size: 22px;
+    color: #6b7376;
+}
+
+.write-message-div>input{
+    width: 85%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #6b7376;
+    
+}
+
+.write-message-div>input::placeholder{
+    padding: 0 15px;
+    font-family: 'Roboto', sans-serif;
 }
