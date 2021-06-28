@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Commons */
 
 .circle-div{
     background-color: whitesmoke;
@@ -14,11 +15,6 @@
 
 h3, h4{
     font-weight: 500;
-}
-
-span{
-    font-size: 14px;
-    color:gray;
 }
 
 .user{
@@ -35,6 +31,11 @@ span{
 
 .user .circle-div>img{
     width: 100%;
+}
+
+.last-message-date, .last-message{
+    color:#c5c5c5;
+    font-size: 13px;
 }
 
 .header{
@@ -59,6 +60,12 @@ span{
     margin: 0 12px ;
 }
 
+.header .icons>i:hover{
+    color:gray
+}
+
+/* Background Page */
+
 .background{
     height: 100vh;
     width: 100vw;
@@ -82,11 +89,6 @@ span{
     display: flex;
 }
 
-.last-access, .last-message{
-    color:#c5c5c5;
-    font-size: 13px;
-}
-
 /* ------------------ COL SX ------------------ */
 
 .col-sx{
@@ -99,6 +101,7 @@ span{
     border-right: 1px solid #b1b1b1;
 }
 
+/* Notification div */
 
 .notifications{
     height: 85px;
@@ -109,15 +112,28 @@ span{
 }
 
 .notifications>.circle-div{
-    margin-right: 10px;
-    width: 50px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50px;
+    margin-right: 10px;
     font-size: 22px;
     color:#8edafc;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
+
+.notifications .notifications-details{
+    margin-left: 8px;
+}
+
+.notifications .notifications-details>span{
+    font-size: 14px;
+    font-weight: 300;
+    color:grey ;
+    text-decoration: underline;
+}
+
+/* Search-div: label +input */
 
 .search-bar-div{
     height: 50px;
@@ -128,10 +144,10 @@ span{
 }
 
 .search-bar-div .search-label{
-    width: 70px;
     height: 35px;
-    color: #bab9bc;
+    width: 70px;
     background-color: white;
+    color: #bab9bc;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
     border-left: 1px solid #e7e7e7;
@@ -141,8 +157,8 @@ span{
 }
 
 .search-bar-div>input{
-    width: calc(95% - 70px);
     height: 35px;
+    width: calc(95% - 70px);
     border: 1px solid #e7e7e7 ;
     padding: 0 15px;
 }
@@ -151,6 +167,8 @@ span{
     color:#d3d3d3 ;
     font-family: 'Roboto', sans-serif;
 }
+
+/* Contact SECTION */
 
 .contacts{
     background-color: white;
@@ -179,10 +197,7 @@ span{
 .contacts .person>.user .circle-div{
     width: 60px;
     height: 60px;
-
 }
-
-
 
 .contacts .person>.user .user-details{
     width:calc(100% - 70px);
@@ -198,15 +213,22 @@ span{
     min-width: 400px;
 }
 
+.col-dx .header .user .name-last-access .last-access{
+    font-size: 14px;
+    color:#b1b1b1 ;
+}
+
+/* Messages SECTION */
+
 .messages{
-    background-image: url('../img/mine.jpg');
     height: calc(100% - 145px);
     width: 100%;
+    background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
 .messages .messages-container{
-    width: 80%;
     height: 100%;
+    width: 80%;
     margin: 0 auto;
     padding-top: 50px;
     display: flex;
@@ -214,40 +236,42 @@ span{
 }
 
 .message{
-    padding: 15px 10px 5px 15px;
     min-width: 200px;
+    padding: 15px 10px 5px 15px;
     margin-bottom: 20px;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
-.messages .messages-container .message>.last-access{
+.message>h4{
+    font-weight: 400;
+}
+.messages .messages-container .message>.last-message-date{
     align-self: flex-end;
     padding-top: 2px;
     font-size: 12px;
 }
 
 .my-message{
-    align-self: flex-end;
     background-color: #DCF8C6;
-    
+    align-self: flex-end;
 }
 
 .user-message{
-    align-self: flex-start;
     background-color: white;
-    
+    align-self: flex-start; 
 }
 
+/* Write message div */
 
 .write-message-div{
     height: 70px;
+    padding: 0 15px;
     background-color: #f3eeea;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 0 15px;
+    justify-content: space-around; 
 }
 
 .write-message-div>i{
@@ -255,11 +279,15 @@ span{
     color: #6b7376;
 }
 
+.write-message-div>i:hover{
+    color: #4d5355;
+}
+
 .write-message-div>input{
-    width: 85%;
     height: 50px;
+    width: 85%;
     border-radius: 10px;
-    border: 1px solid #6b7376;
+    border: none;
     padding: 0 15px;
 }
 
