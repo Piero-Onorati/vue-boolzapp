@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: #d7dbd7;  
+}
+
+.background-top{
+    height: 100px;
+    background-color: #009688;
+}
+
+.container{
+    height: 95%;
+    width: 75%;
+    background-color: #eaeaea;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+
+.col-sx{
+    height: 100%;
+    width: 35%;
+    background-color: aqua;
+
+}
+
+.col-dx{
+    height: 100%;
+    width: calc(100% - 35%);
+    background-color: bisque;
+}
