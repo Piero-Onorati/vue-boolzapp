@@ -17,6 +17,10 @@ h3, h4{
     font-weight: 500;
 }
 
+.notifications-details>h4, .message>h4{
+    font-weight: 400;
+}
+
 .user{
     display: flex;
     align-items: center;
@@ -244,9 +248,6 @@ h3, h4{
     flex-direction: column; 
 }
 
-.message>h4{
-    font-weight: 400;
-}
 .messages .messages-container .message>.last-message-date{
     align-self: flex-end;
     padding-top: 2px;
