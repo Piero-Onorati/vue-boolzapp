@@ -18,7 +18,7 @@ h3, h4{
 
 span{
     font-size: 14px;
-    color:gray
+    color:gray;
 }
 
 .user{
@@ -38,7 +38,7 @@ span{
 }
 
 .header{
-    height: 70px;
+    height: 75px;
     padding: 0 15px 0 10px;
     background-color: #eaeaea;
     display: flex;
@@ -48,13 +48,11 @@ span{
     flex-wrap: nowrap;
 }
 
-
 .header .icons{
     font-size: 22px;
     color:#b1b1b1;
     display: flex;
     align-items: center;
-    
 }
 
 .header .icons>i{
@@ -84,6 +82,11 @@ span{
     display: flex;
 }
 
+.last-access, .last-message{
+    color:#c5c5c5;
+    font-size: 13px;
+}
+
 /* ------------------ COL SX ------------------ */
 
 .col-sx{
@@ -98,7 +101,7 @@ span{
 
 
 .notifications{
-    height: 80px;
+    height: 85px;
     padding: 0 20px;
     background-color: #8edafc;
     display: flex;
@@ -141,11 +144,17 @@ span{
     width: calc(95% - 70px);
     height: 35px;
     border: 1px solid #e7e7e7 ;
+    padding: 0 15px;
+}
+
+.search-bar-div>input::placeholder{
+    color:#d3d3d3 ;
+    font-family: 'Roboto', sans-serif;
 }
 
 .contacts{
     background-color: white;
-    height: calc(100% - 200px);
+    height: calc(100% - 210px);
     overflow-y: scroll;
 }
 
@@ -154,15 +163,27 @@ span{
     padding: 10px 10px 10px 20px;
     border-bottom: 1px solid #e7e7e7;
 }
+
+.contacts .person:hover{
+    background-color: rgba(231, 231, 231,0.8);
+}
+
+.contacts .person:active{
+    background-color: rgba(197, 196, 196,0.5);
+}
+
+.contacts .person>.user{
+    align-items: flex-start;
+}
+
 .contacts .person>.user .circle-div{
     width: 60px;
     height: 60px;
 
 }
 
-.contacts .person>.user{
-    align-items: flex-start;
-}
+
+
 .contacts .person>.user .user-details{
     width:calc(100% - 70px);
     display: flex;
@@ -179,7 +200,7 @@ span{
 
 .messages{
     background-image: url('../img/mine.jpg');
-    height: calc(100% - 140px);
+    height: calc(100% - 145px);
     width: 100%;
     overflow-y: scroll;
 }
@@ -193,9 +214,18 @@ span{
 }
 
 .message{
-    padding: 15px;
+    padding: 15px 10px 5px 15px;
+    min-width: 200px;
     margin-bottom: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages .messages-container .message>.last-access{
+    align-self: flex-end;
+    padding-top: 2px;
+    font-size: 12px;
 }
 
 .my-message{
@@ -207,6 +237,7 @@ span{
 .user-message{
     align-self: flex-start;
     background-color: white;
+    
 }
 
 
@@ -229,9 +260,10 @@ span{
     height: 50px;
     border-radius: 10px;
     border: 1px solid #6b7376;
+    padding: 0 15px;
 }
 
 .write-message-div>input::placeholder{
-    padding: 0 15px;
+    color: gray;
     font-family: 'Roboto', sans-serif;
 }
