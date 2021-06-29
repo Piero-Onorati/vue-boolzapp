@@ -9,6 +9,7 @@ const app = new Vue(
             counter :0,
             newMessage : '',
             answer:'',
+            date : dayjs().format('HH:mm'),
             search: '',
             contacts: [
                 {
@@ -124,12 +125,15 @@ const app = new Vue(
             ]
         },
 
-        mounted :function (){
-            
+        computed : {
+            filteredContacts : function (){
+                return this.contacts.filter((element)=>{
+                    return element.name.toLowerCase().match(this.search.toLowerCase())
+
+                });
+            }
 
         },
-
-       
 
         methods: {
 
@@ -165,11 +169,12 @@ const app = new Vue(
 
             send : function(array) {
 
-                let date = dayjs().format('DD/MM/YYYY HH:mm:ss');
+                let dateSend = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
                 if(this.newMessage != ''){
+
                     array.push({
-                        date: date,
+                        date: dateSend,
                         text: this.newMessage,
                         status: 'sent'
                     });
@@ -178,10 +183,10 @@ const app = new Vue(
 
                 this.answer= setTimeout(function(){ 
 
-                    let date2 = dayjs().format('DD/MM/YYYY HH:mm:ss');
+                    let dateReceived = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
                     array.push({
-                        date: date2,
+                        date: dateReceived,
                         text: 'OK',
                         status: 'received'
                     });
@@ -190,7 +195,6 @@ const app = new Vue(
             }
 
         }
-
 
     }
 );

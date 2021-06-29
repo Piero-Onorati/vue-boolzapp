@@ -82,7 +82,7 @@
 
             <!-- start section contacts -->
             <section class="contacts">
-                <div class="person" v-for="(person, index) in contacts" @click="show(index)">
+                <div class="person" v-for="(person, index) in filteredContacts" @click="show(index)">
                     <div class="user">
                         <div class="circle-div">
                             <img :src="person.avatar" alt="">
@@ -117,7 +117,7 @@
                     </div>
                     <div class="name-last-access">
                         <h3>{{contacts[counter].name}} </h3>
-                        <span class="last-access">Ultimo accesso oggi alle</span>
+                        <span class="last-access">Ultimo accesso oggi alle{{date}}</span>
                     </div>
                 </div>
                 <!-- end user -->
