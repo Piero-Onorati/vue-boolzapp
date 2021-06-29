@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Day.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.5/dayjs.min.js" integrity="sha512-n6mJ6AqoohFfbgx3x7N162B/zRNs5x8uvsStlHC+LCvqwKW7oiucE07Ehatg62ybx6Vo1ctaZwm/4sSRUTSIQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -139,21 +142,6 @@
                         <span class="last-message-date">{{message.date}}</span>
                     </div>
 
-                    
-
-
-                    <!-- <div class="message my-message">
-                        <h4>Hai portato a spasso il cane?</h4>
-                        <span class="last-message-date">10/01/2021 15:30:55</span>
-                    </div>
-                    <div class="message my-message">
-                        <h4>Ricordati di dargli da mangiare</h4>
-                        <span class="last-message-date">10/01/2021 15:50:00</span>
-                    </div>
-                    <div class="message user-message">
-                        <h4>Tutto fatto!</h4>
-                        <span class="last-message-date">28/06/2021 10:02:01</span>
-                    </div> -->
                 </div>
             </section>
             <!-- end section-meassages -->
@@ -161,7 +149,7 @@
             <!-- start write-message-div -->
             <div class="write-message-div">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="send">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="send(contacts[counter].messages)">
                 <i class="fas fa-microphone"></i>
             </div>
             <!-- end write-message-div -->

@@ -8,6 +8,7 @@ const app = new Vue(
             userMessage : 'user-message',
             counter :0,
             newMessage : '',
+            answer:'',
             search: '',
             contacts: [
                 {
@@ -120,9 +121,12 @@ const app = new Vue(
                     ]
                 },
 
-
-
             ]
+        },
+
+        mounted :function (){
+            
+
         },
 
        
@@ -131,16 +135,13 @@ const app = new Vue(
 
             show : function (index){
                 this.counter = index
-            }
+            },
                 
-            
             // Milestone 2 con backtick
             // show: function(element,index){
 
             //     document.getElementById('all-messages').innerHTML = '';
-
-            //     console.log(element.name);
-
+            //     
             //     document.getElementById('user-info').innerHTML =
             //         `<div class="circle-div">
             //             <img src="${element.avatar}" alt="">
@@ -151,8 +152,8 @@ const app = new Vue(
             //         </div>`;
 
             //     element.messages.forEach(element => {
-            //         console.log(element.text);
             //         let messageType = (element.status == 'sent')? this.myMessage : this.userMessage;
+
             //         document.getElementById('all-messages').innerHTML += 
             //         `<div class="message ${messageType}">
             //         <h4>${element.text}</h4>
@@ -162,9 +163,34 @@ const app = new Vue(
                    
             // },
 
+            send : function(array) {
+
+                let date = dayjs().format('DD/MM/YYYY HH:mm:ss');
+
+                if(this.newMessage != ''){
+                    array.push({
+                        date: date,
+                        text: this.newMessage,
+                        status: 'sent'
+                    });
+                }
+                this.newMessage ="";
+
+                this.answer= setTimeout(function(){ 
+
+                    let date2 = dayjs().format('DD/MM/YYYY HH:mm:ss');
+
+                    array.push({
+                        date: date2,
+                        text: 'OK',
+                        status: 'received'
+                    });
+                }, 1000);
+
+            }
+
         }
 
-        
 
     }
 );
