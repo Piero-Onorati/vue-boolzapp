@@ -79,7 +79,7 @@
 
             <!-- start section contacts -->
             <section class="contacts">
-                <div class="person" v-for="(person, index) in contacts" @click="show(person,index)">
+                <div class="person" v-for="(person, index) in contacts" @click="show(index)">
                     <div class="user">
                         <div class="circle-div">
                             <img :src="person.avatar" alt="">
@@ -105,15 +105,15 @@
         <div class="col-dx">
 
             <!-- start header-div -->
-            <div class="header">
+            <div class="header" >
 
                 <!-- start user -->
                 <div class="user" id="user-info">
                     <div class="circle-div">
-                        <img src="img/av_2.png" alt="">
+                        <img :src=" contacts[counter].avatar" alt="">
                     </div>
                     <div class="name-last-access">
-                        <h3>Nome </h3>
+                        <h3>{{contacts[counter].name}} </h3>
                         <span class="last-access">Ultimo accesso oggi alle</span>
                     </div>
                 </div>
@@ -132,11 +132,11 @@
 
             <!-- start section-meassages -->
             <section class="messages">
-                <div class="messages-container" id="all-messages" >
+                <div class="messages-container" id="all-messages"  >
 
-                    <div class="message my-message" v-for="item in contacts.messages">
-                        <h4>{{item}}</h4>
-                        <span class="last-message-date">10/01/2021 15:30:55</span>
+                    <div v-for="message in contacts[counter].messages"class="message" :class="(message.status == 'sent')? myMessage : userMessage">
+                        <h4>{{message.text}}</h4>
+                        <span class="last-message-date">{{message.date}}</span>
                     </div>
 
                     
