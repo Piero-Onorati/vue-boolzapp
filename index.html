@@ -73,13 +73,13 @@
                 <label for="search" class="search-label">
                     <i class="fas fa-search"></i>
                 </label>
-                <input type="text" name="search" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" name="search" v-model="search" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- end search-bar-div -->
 
             <!-- start section contacts -->
-            <section class="contacts" id="contacts">
-                <div class="person" v-for="person in contacts">
+            <section class="contacts">
+                <div class="person" v-for="(person, index) in contacts" @click="show(person,index)">
                     <div class="user">
                         <div class="circle-div">
                             <img :src="person.avatar" alt="">
@@ -108,7 +108,7 @@
             <div class="header">
 
                 <!-- start user -->
-                <div class="user">
+                <div class="user" id="user-info">
                     <div class="circle-div">
                         <img src="img/av_2.png" alt="">
                     </div>
@@ -132,16 +132,28 @@
 
             <!-- start section-meassages -->
             <section class="messages">
-                <div class="messages-container">
-                    <div class="message my-message">
-                        <h4>Hai portato a spasso il cane?</h4>
-                        <span class="last-message-date">28/06/2021 10:02:01</span>
+                <div class="messages-container" id="all-messages" >
 
+                    <div class="message my-message" v-for="item in contacts.messages">
+                        <h4>{{item}}</h4>
+                        <span class="last-message-date">10/01/2021 15:30:55</span>
+                    </div>
+
+                    
+
+
+                    <!-- <div class="message my-message">
+                        <h4>Hai portato a spasso il cane?</h4>
+                        <span class="last-message-date">10/01/2021 15:30:55</span>
+                    </div>
+                    <div class="message my-message">
+                        <h4>Ricordati di dargli da mangiare</h4>
+                        <span class="last-message-date">10/01/2021 15:50:00</span>
                     </div>
                     <div class="message user-message">
                         <h4>Tutto fatto!</h4>
                         <span class="last-message-date">28/06/2021 10:02:01</span>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <!-- end section-meassages -->
@@ -149,7 +161,7 @@
             <!-- start write-message-div -->
             <div class="write-message-div">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="send">
                 <i class="fas fa-microphone"></i>
             </div>
             <!-- end write-message-div -->
