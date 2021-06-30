@@ -134,13 +134,14 @@
                 <div class="messages-container" id="all-messages"  >
                     <div v-for="(message,index) in contacts[counter].messages" class="message" :class="(message.status == 'sent')? myMessage : userMessage" :id="index">
                         <div class="top-message" >
+                            
                             <h4>{{message.text}}</h4>
 
                             <!-- BUTTON Chevron-down -->
                             <button  @click="toggle(index)"><i class="fas fa-chevron-down" class="fade-chevron"></i></button>
 
                              <!-- dropdown box -->
-                            <div class="dropdown" v-if="active && newVar == index">
+                            <div class="dropdown" v-if="active && indexCheck == index">
                                 <div class="dropdown-item">
                                     <i class="fas fa-info-circle"></i>
                                     <i class="fas fa-trash-alt" @click="deleteMessage(contacts[counter].messages, index)" ></i>

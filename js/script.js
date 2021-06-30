@@ -5,15 +5,15 @@ const app = new Vue(
         data: {
 
             myMessage: 'my-message',
-            userMessage : 'user-message',
-            counter :0,
-            selected:'selected',
-            newMessage : '',
-            answer:'',
-            newVar: '',
-            active: false,
+            userMessage: 'user-message',
+            counter: 0,
+            selected: 'selected',
+            newMessage: '',
+            answer: '',
             date : dayjs().format('HH:mm'),
             search: '',
+            active: false,
+            indexCheck: '',
             contacts: [
                 {
                     name: 'Michela',
@@ -124,7 +124,6 @@ const app = new Vue(
                         }
                     ]
                 },
-
             ]
         },
 
@@ -142,45 +141,19 @@ const app = new Vue(
                 this.counter = index
             },
                 
-            // Milestone 2 con backtick
-            // show: function(element,index){
-
-            //     document.getElementById('all-messages').innerHTML = '';
-            //     
-            //     document.getElementById('user-info').innerHTML =
-            //         `<div class="circle-div">
-            //             <img src="${element.avatar}" alt="">
-            //         </div>
-            //         <div class="name-last-access">
-            //             <h3>${element.name}</h3>
-            //             <span class="last-access">Ultimo accesso oggi alle</span>
-            //         </div>`;
-
-            //     element.messages.forEach(element => {
-            //         let messageType = (element.status == 'sent')? this.myMessage : this.userMessage;
-
-            //         document.getElementById('all-messages').innerHTML += 
-            //         `<div class="message ${messageType}">
-            //         <h4>${element.text}</h4>
-            //         <span class="last-message-date">${element.date}</span>
-            //         </div>`                    
-            //     });
-                   
-            // },
-
             send : function(array) {
 
                 let dateSend = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
                 if(this.newMessage != ''){
-
                     array.push({
                         date: dateSend,
                         text: this.newMessage,
                         status: 'sent'
                     });
                 }
-                this.newMessage ="";
+
+                this.newMessage = "";
 
                 this.answer= setTimeout(function(){ 
 
@@ -195,11 +168,8 @@ const app = new Vue(
 
             },
 
-
-
             toggle: function(index){
-                this.newVar = index
-               
+                this.indexCheck = index
                 this.active = !this.active;
             },
           

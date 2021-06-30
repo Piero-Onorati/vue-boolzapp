@@ -152,7 +152,6 @@ h3, h4{
 .search-bar-div .search-label:hover,
 .search-bar-div .search-label:active{
     background-color: rgb(241, 240, 240);
-
 }
 
 .search-bar-div>input{
@@ -184,7 +183,6 @@ h3, h4{
 .contacts .person:hover{
     background-color: rgba(231, 231, 231,0.6);
 }
-
 
 /* Class that is added through JS to person when the contact is selected */
 .selected{
@@ -232,6 +230,7 @@ h3, h4{
     background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
+
 .messages .messages-container{
     height: 100%;
     width: 80%;
