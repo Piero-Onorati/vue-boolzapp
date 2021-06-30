@@ -21,12 +21,6 @@
 </head>
 <body>
 
-    <!--background page -->
-    <div class="background">
-        <div class="background-top"></div>
-    </div>
-    <!--background page -->
-
     <!-- start container -->
     <div class="container" id="app">
 
@@ -94,9 +88,9 @@
                         <div class="user-details">
                             <div class="name-last-message">
                                 <h3>{{person.name}} </h3>
-                                <span class="last-message" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])" v-if= " message.status == 'received'">{{message.text}}</span>
+                                <span class="last-message" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])">{{message.text}}</span>
                             </div>
-                            <span class="last-message-date" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])" v-if= " message.status == 'received'">{{message.date}}</span>
+                            <span class="last-message-date" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])">{{message.date}}</span>
                         </div>
                     </div>
                 </div>
@@ -138,22 +132,21 @@
             <!-- start section-meassages -->
             <section class="messages">
                 <div class="messages-container" id="all-messages"  >
-
-                    <div v-for="(message,index) in contacts[counter].messages" class="message" :class="(message.status == 'sent')? myMessage : userMessage"  >
+                    <div v-for="(message,index) in contacts[counter].messages" class="message" :class="(message.status == 'sent')? myMessage : userMessage" >
                         <div class="top-message" >
                             <h4>{{message.text}}</h4>
 
-                            <!-- fa-chevron-down -->
-                            <button v-if="shown" key="on" @click="shown = false"><i class="fas fa-chevron-down" class="fade-chevron" :id="index"></i></button>
-                            <button v-else key="off" @click="shown = true"><i class="fas fa-chevron-down"></i></button>
+                            <!-- BUTTON Chevron-down -->
+                            <button  @click="toggle"><i class="fas fa-chevron-down" class="fade-chevron"></i></button>
 
-                            <!-- dropdown box -->
-                            <div class="dropdown" v-if="shown">
+                             <!-- dropdown box -->
+                            <div class="dropdown" v-if="active">
                                 <div class="dropdown-item">
                                     <i class="fas fa-info-circle"></i>
                                     <i class="fas fa-trash-alt" @click="deleteMessage(contacts[counter].messages, index)" ></i>
                                 </div>
                             </div>
+
                         </div>
                         <span class="last-message-date">{{message.date}}</span>
                     </div>

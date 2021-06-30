@@ -10,7 +10,7 @@ const app = new Vue(
             selected:'selected',
             newMessage : '',
             answer:'',
-            shown: false,
+            active: false,
             date : dayjs().format('HH:mm'),
             search: '',
             contacts: [
@@ -194,11 +194,10 @@ const app = new Vue(
 
             },
 
-            // openDropdown : function(index){
-            //     let element = document.getElementById(index);
-            //     element.classList.toggle('display');
-            // },
-
+            toggle: function(){
+                this.active = !this.active;
+            },
+          
             deleteMessage : function(array, index){
                 array.splice(index,1)
             }
