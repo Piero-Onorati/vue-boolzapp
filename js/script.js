@@ -101,7 +101,7 @@ const app = new Vue(
                         },
                         {
                             date: '10/01/2020 15:30:55',
-                            text: 'Appuntamento dal dentista -',
+                            text: 'Appuntamento dal dentista',
                             status: 'sent'
                         },
                     ]
@@ -124,6 +124,42 @@ const app = new Vue(
                         }
                     ]
                 },
+
+                {
+                    name: 'Filiberto',
+                    avatar: 'img/av_7.png',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '19/04/2021 18:30:25',
+                            text: 'Bella la tua foto profilo!',
+                            status: 'sent'
+                        },
+                        {
+                            date: '19/04/2021 19:00:00',
+                            text: 'Grazie, l\'ho scattata ad una festa',
+                            status: 'received'
+                        }
+                    ]
+                },
+
+                {
+                    name: 'Simonetta',
+                    avatar: 'img/av_8.png',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '04/06/2020 11:45:50',
+                            text: 'Vieni alla festa di Stefania?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '04/06/2020 12:05:20',
+                            text: 'Si, certo! Vedrai, ci divertiremo come pazzi',
+                            status: 'received'
+                        }
+                    ]
+                }
             ]
         },
 
