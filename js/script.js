@@ -10,6 +10,7 @@ const app = new Vue(
             selected:'selected',
             newMessage : '',
             answer:'',
+            newVar: '',
             active: false,
             date : dayjs().format('HH:mm'),
             search: '',
@@ -194,7 +195,11 @@ const app = new Vue(
 
             },
 
-            toggle: function(){
+
+
+            toggle: function(index){
+                this.newVar = index
+               
                 this.active = !this.active;
             },
           
