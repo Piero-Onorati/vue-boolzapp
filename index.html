@@ -73,16 +73,19 @@
 
             <!-- start search-bar-div -->
             <div class="search-bar-div">
-                <label for="search" class="search-label">
-                    <i class="fas fa-search"></i>
-                </label>
+                <button class="search-label">
+                    <label for="search" >
+                        <i class="fas fa-search"></i>
+                    </label>
+                </button>
+                
                 <input type="text" name="search" v-model="search" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- end search-bar-div -->
 
             <!-- start section contacts -->
             <section class="contacts">
-                <div class="person" v-for="(person, index) in filteredContacts" @click="show(index)">
+                <div class="person"  :class ="(index == counter)? selected :''" v-for="(person, index) in filteredContacts" @click="show(index)">
                     <div class="user">
                         <div class="circle-div">
                             <img :src="person.avatar" alt="">
@@ -91,10 +94,9 @@
                         <div class="user-details">
                             <div class="name-last-message">
                                 <h3>{{person.name}} </h3>
-                                <span class="last-message">Last message</span>
+                                <span class="last-message" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])" v-if= " message.status == 'received'">{{message.text}}</span>
                             </div>
-
-                            <span class="last-message-date">28/06/2021 10:02:01</span>
+                            <span class="last-message-date" v-for="message in contacts[index].messages" v-if= " (message == contacts[index].messages[contacts[index].messages.length -1])" v-if= " message.status == 'received'">{{message.date}}</span>
                         </div>
                     </div>
                 </div>
@@ -117,7 +119,7 @@
                     </div>
                     <div class="name-last-access">
                         <h3>{{contacts[counter].name}} </h3>
-                        <span class="last-access">Ultimo accesso oggi alle{{date}}</span>
+                        <span class="last-access">Ultimo accesso oggi alle {{date}}</span>
                     </div>
                 </div>
                 <!-- end user -->
@@ -137,8 +139,22 @@
             <section class="messages">
                 <div class="messages-container" id="all-messages"  >
 
-                    <div v-for="message in contacts[counter].messages"class="message" :class="(message.status == 'sent')? myMessage : userMessage">
-                        <h4>{{message.text}}</h4>
+                    <div v-for="(message,index) in contacts[counter].messages" class="message" :class="(message.status == 'sent')? myMessage : userMessage"  >
+                        <div class="top-message" >
+                            <h4>{{message.text}}</h4>
+
+                            <!-- fa-chevron-down -->
+                            <button v-if="shown" key="on" @click="shown = false"><i class="fas fa-chevron-down" class="fade-chevron" :id="index"></i></button>
+                            <button v-else key="off" @click="shown = true"><i class="fas fa-chevron-down"></i></button>
+
+                            <!-- dropdown box -->
+                            <div class="dropdown" v-if="shown">
+                                <div class="dropdown-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <i class="fas fa-trash-alt" @click="deleteMessage(contacts[counter].messages, index)" ></i>
+                                </div>
+                            </div>
+                        </div>
                         <span class="last-message-date">{{message.date}}</span>
                     </div>
 

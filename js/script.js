@@ -7,8 +7,10 @@ const app = new Vue(
             myMessage: 'my-message',
             userMessage : 'user-message',
             counter :0,
+            selected:'selected',
             newMessage : '',
             answer:'',
+            shown: false,
             date : dayjs().format('HH:mm'),
             search: '',
             contacts: [
@@ -98,7 +100,7 @@ const app = new Vue(
                         },
                         {
                             date: '10/01/2020 15:30:55',
-                            text: 'Appuntamento dal dentista',
+                            text: 'Appuntamento dal dentista -',
                             status: 'sent'
                         },
                     ]
@@ -129,10 +131,8 @@ const app = new Vue(
             filteredContacts : function (){
                 return this.contacts.filter((element)=>{
                     return element.name.toLowerCase().match(this.search.toLowerCase())
-
                 });
             }
-
         },
 
         methods: {
@@ -192,6 +192,15 @@ const app = new Vue(
                     });
                 }, 1000);
 
+            },
+
+            // openDropdown : function(index){
+            //     let element = document.getElementById(index);
+            //     element.classList.toggle('display');
+            // },
+
+            deleteMessage : function(array, index){
+                array.splice(index,1)
             }
 
         }
