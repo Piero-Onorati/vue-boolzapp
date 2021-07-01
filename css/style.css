@@ -300,13 +300,13 @@ h3, h4{
     align-self: flex-end;
 }
 
-.my-message .last-message-date::after{
+/* .my-message .last-message-date::after{
     font-family: "Font Awesome 5 Free"; 
     font-weight: 900; 
     content: "\f560";
     color:#34B7F1;
     margin-left: 5px;
-}
+} */
 
 .user-message{
     background-color: white;
@@ -344,4 +344,14 @@ h3, h4{
 .write-message-div>input::placeholder{
     color: gray;
     font-family: 'Roboto', sans-serif;
+}
+
+
+.display-none{
+    display: none;
+}
+
+.display-inline{
+    display: inline-block;
+    color:#34B7F1;
 }

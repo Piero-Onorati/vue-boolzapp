@@ -150,7 +150,7 @@
                             </div>
 
                         </div>
-                        <span class="last-message-date">{{message.date}}</span>
+                        <span class="last-message-date">{{message.date}} <i class="fas fa-check-double" :class="(message.check == 'received')? received : notReceived"></i></span>
                     </div>
 
                 </div>
