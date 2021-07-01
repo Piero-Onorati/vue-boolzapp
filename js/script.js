@@ -9,11 +9,11 @@ const app = new Vue(
             counter: 0,
             selected: 'selected',
             newMessage: '',
-            answer: '',
             date : dayjs().format('HH:mm'),
             search: '',
             active: false,
             indexCheck: '',
+            onlyReceived:'last-message-date-onlyreceived::after',
             contacts: [
                 {
                     name: 'Michela',
@@ -160,6 +160,18 @@ const app = new Vue(
                         }
                     ]
                 }
+            ],
+            randomAnswers :[ 
+                            'OK', 'Va bene', 'Perfetto', 'Ti richiamo', 'Non lo so!!', 'Meglio tardi che mai','Chi ben comincia è a metà dell\'opera',
+                            'Una rondine non fa primavera', 'Bacco, tabacco e Venere riducon l\'uomo in cenere', 'Can che abbaia non morde', 'Aiutooo',
+                            'Morto un papa se ne fa un altro', 'Chiusa una porta, si apre un portone', 'Abracadabra', 'Chi si somiglia si piglia'
+            ],
+            randomIcon: [
+                            0x1F600, 0x1F604, 0x1F34A, 0x1F344, 0x1F37F, 0x1F363, 0x1F370, 0x1F355,
+                            0x1F354, 0x1F35F, 0x1F6C0, 0x1F48E, 0x1F5FA, 0x1F579, 0x1F4DA, 0x1F4A3,		
+                            0x1F431, 0x1F42A, 0x1F439, 0x1F424, 0x1F917, 0x1F92D, 0x1F92B, 0x1F914,
+                            0x1F604, 0x1F606, 0x1F602, 0x1F60A, 0x1F607, 0x1F60D, 0x1F929, 0x1F911,
+                            0x1F634, 0x1F635, 0x1F60E, 0x1F9D0, 0x1F62D, 0x1F631, 0x1F92C, 0x1F47E			
             ]
         },
 
@@ -179,30 +191,55 @@ const app = new Vue(
                 
             send : function(array) {
 
-                let dateSend = dayjs().format('DD/MM/YYYY HH:mm:ss');
-
                 if(this.newMessage != ''){
                     array.push({
-                        date: dateSend,
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: this.newMessage,
                         status: 'sent'
-                    });
+                    });                    
                 }
 
                 this.newMessage = "";
 
-                this.answer= setTimeout(function(){ 
+                let isWriting = 3;
 
-                    let dateReceived = dayjs().format('DD/MM/YYYY HH:mm:ss');
+                let RandomText = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
 
-                    array.push({
-                        date: dateReceived,
-                        text: 'OK',
-                        status: 'received'
-                    });
-                }, 1000);
+                let randomEmoji = String.fromCodePoint(this.randomIcon[Math.floor(Math.random() * this.randomIcon.length)]);
 
+                //Milestone 3 + bonus : adding is writing.../ random answer from the array "randomAnswers"
+                let answer = setInterval(function(){
+                    
+                    if (isWriting == 0) {
+
+                        clearInterval(answer);
+
+                        array.push({
+                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                            text: RandomText + ' '+ randomEmoji,
+                            status: 'received'
+                        });
+
+                        document.querySelector('.last-access').innerHTML= 'Ultimo accesso oggi alle ' + dayjs().format('HH:mm');
+            
+                    }else{
+                        document.querySelector('.last-access').innerHTML= 'Sta scrivendo...';
+                    }
+
+                    isWriting -= 1;
+
+                },1000);
+
+                //Milestone 3: After 1 second, received a default answer(OK)  
+                // let answer = setTimeout(function(){ 
+                //     array.push({
+                //         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                //         text: 'OK',
+                //         status: 'received'
+                //     });
+                // }, this.time);
             },
+
 
             toggle: function(index){
                 this.indexCheck = index

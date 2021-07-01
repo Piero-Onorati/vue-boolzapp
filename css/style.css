@@ -300,6 +300,14 @@ h3, h4{
     align-self: flex-end;
 }
 
+.my-message .last-message-date::after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f560";
+    color:#34B7F1;
+    margin-left: 5px;
+}
+
 .user-message{
     background-color: white;
     align-self: flex-start; 
