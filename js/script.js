@@ -226,7 +226,7 @@ const app = new Vue(
                                 element.check = 'received'
                             }                     
                         })
-                    }, 2000);
+                    }, 1000);
 
                 }
 
