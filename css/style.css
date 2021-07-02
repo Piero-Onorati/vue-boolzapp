@@ -235,7 +235,6 @@ h3, h4{
 }
 
 #messages .messages-container{
-   
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
@@ -245,11 +244,14 @@ h3, h4{
 
 .message{
     min-width: 200px;
+    max-width:350px;
     padding: 15px 15px 5px 15px;
     margin-bottom: 20px;
     border-radius: 10px;
+    word-break: break-all;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    flex-wrap: nowrap; 
     position: relative;
 }
 
