@@ -203,6 +203,10 @@ const app = new Vue(
             }
         },
 
+        updated: function(){
+            this.scrollBottom()
+        },
+
         methods: {
 
             //when select a contact, it will appear on the right, name + all messages
@@ -273,7 +277,15 @@ const app = new Vue(
             //delete message
             deleteMessage : function(array, index){
                 array.splice(index,1)
-            }              
+            },
+            
+            //scrollBottom function
+            scrollBottom :function () {
+                let container = document.getElementById('messages')
+                container.scrollTop = container.scrollHeight
+                console.log(container.scrollTop)
+                console.log(container.scrollHeight)
+            }
 
         }
 

@@ -207,6 +207,9 @@ h3, h4{
 
 .contacts .person .user .user-details .name-last-message{
     width:60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* ------------------ COL DX ------------------ */
@@ -224,15 +227,15 @@ h3, h4{
 
 /* Messages SECTION */
 
-.messages{
+#messages{
     height: calc(100% - 145px);
     width: 100%;
     background-image: url('../img/mine.jpg');
     overflow-y: scroll;
 }
 
-.messages .messages-container{
-    height: 100%;
+#messages .messages-container{
+   
     width: 80%;
     margin: 0 auto;
     padding-top: 50px;
@@ -250,13 +253,13 @@ h3, h4{
     position: relative;
 }
 
-.messages .messages-container .message .top-message{
+#messages .messages-container .message .top-message{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.messages .messages-container .message .top-message>button{
+#messages .messages-container .message .top-message>button{
     background-color: transparent;
     border: none;
     width: 10px;
@@ -264,11 +267,11 @@ h3, h4{
     opacity: 0.3;
 }
 
-.messages .messages-container .message .top-message>button:hover{
+#messages .messages-container .message .top-message>button:hover{
     opacity: 1; 
 }
 
-.messages .messages-container .message .top-message .dropdown{
+#messages .messages-container .message .top-message .dropdown{
     background-color: #eaeaea;
     color:#b1b1b1 ;
     position: absolute;
@@ -277,7 +280,7 @@ h3, h4{
     z-index:1;
 }
 
-.messages .messages-container .message .top-message .dropdown .dropdown-item{
+#messages .messages-container .message .top-message .dropdown .dropdown-item{
     display: flex;
     justify-content: space-between;
     min-width: 70px;
@@ -285,11 +288,11 @@ h3, h4{
     padding: 10px;
 }
 
-.messages .messages-container .message .top-message .dropdown .dropdown-item i:hover{
+#messages .messages-container .message .top-message .dropdown .dropdown-item i:hover{
     color:gray
 }
 
-.messages .messages-container .message>.last-message-date{
+#messages .messages-container .message>.last-message-date{
     align-self: flex-end;
     padding-top: 2px;
     font-size: 12px;
