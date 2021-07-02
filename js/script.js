@@ -240,25 +240,19 @@ const app = new Vue(
                 let isWriting = 3;
 
                 let answer = setInterval(function(){
-                    
                     if (isWriting == 0) {
                         clearInterval(answer);
-
                         array.push({
                             date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                             text: RandomText + ' '+ randomEmoji,
                             status: 'received'
                         });
-
                         document.querySelector('.last-access').innerHTML= 'Ultimo accesso oggi alle ' + dayjs().format('HH:mm');
-
                     }else{
                         document.querySelector('.last-access').innerHTML= 'Sta scrivendo...';
                     }
-
                     isWriting -= 1;
                 },1000);
-
 
                 //Milestone 3: After 1 second, received a default answer(OK)  
                 // let answer = setTimeout(function(){ 
