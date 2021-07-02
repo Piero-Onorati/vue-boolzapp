@@ -175,7 +175,7 @@ const app = new Vue(
                             date: '04/06/2020 12:05:20',
                             text: 'Si, certo! Vedrai, ci divertiremo come pazzi',
                             status: 'received',
-                            check: 'received'
+                            check: 'na'
                         }
                     ]
                 }
@@ -222,41 +222,37 @@ const app = new Vue(
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: this.newMessage,
                         status: 'sent',
+                        check:'received'
                     }); 
-
-                    setTimeout(function(){ 
-                        array.forEach(element => {
-                            if (element.status != 'received') {
-                                element.check = 'received'
-                            }                     
-                        })
-                    }, 1000);
 
                 }
 
                 this.newMessage = "";
 
-                // Set variables for random answers
-                let RandomText = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
-                let randomEmoji = String.fromCodePoint(this.randomIcon[Math.floor(Math.random() * this.randomIcon.length)]);
+                setTimeout(()=>{
+                    // Set variables for random answers
+                    let RandomText = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
+                    let randomEmoji = String.fromCodePoint(this.randomIcon[Math.floor(Math.random() * this.randomIcon.length)]);
 
-                //Milestone 3 + bonus : adding is writing.../ random answer from the array "randomAnswers"
-                let isWriting = 3;
+                    //Milestone 3 + bonus : adding is writing.../ random answer from the array "randomAnswers"
+                    let isWriting = 3;
 
-                let answer = setInterval(function(){
-                    if (isWriting == 0) {
-                        clearInterval(answer);
-                        array.push({
-                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                            text: RandomText + ' '+ randomEmoji,
-                            status: 'received'
-                        });
-                        document.querySelector('.last-access').innerHTML= 'Ultimo accesso oggi alle ' + dayjs().format('HH:mm');
-                    }else{
-                        document.querySelector('.last-access').innerHTML= 'Sta scrivendo...';
-                    }
-                    isWriting -= 1;
-                },1000);
+                    let answer = setInterval(function(){
+                        if (isWriting == 0) {
+                            clearInterval(answer);
+                            array.push({
+                                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                                text: RandomText + ' '+ randomEmoji,
+                                status: 'received'
+                            });
+                            document.querySelector('.last-access').innerHTML= 'Ultimo accesso oggi alle ' + dayjs().format('HH:mm');
+                        }else{
+                            document.querySelector('.last-access').innerHTML= 'Sta scrivendo...';
+                        }
+                        isWriting -= 1;
+                    },1000);
+
+                },2000)
 
                 //Milestone 3: After 1 second, received a default answer(OK)  
                 // let answer = setTimeout(function(){ 
