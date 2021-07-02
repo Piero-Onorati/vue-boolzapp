@@ -173,7 +173,7 @@ const app = new Vue(
                         },
                         {
                             date: '04/06/2020 12:05:20',
-                            text: 'Si, certo! Vedrai, ci divertiremo come pazzi',
+                            text: 'Si, certo! Ci divertiremo come pazzi',
                             status: 'received',
                             check: 'na'
                         }
